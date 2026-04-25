@@ -16,7 +16,7 @@ const links = [
     <div className="navbar bg-base-100 shadow-sm container mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -34,8 +34,9 @@ const links = [
             </svg>
           </div>
           <ul
+          
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm  dropdown-content bg-base-100 rounded-box z-1 md:hidden mt-3 w-52 p-2 shadow flex flex-col space-y-1"
           >
             { 
             links.map((link, i)=><NavbarLinks key={i} href={link.href}>{link.label}</NavbarLinks>)
@@ -44,8 +45,8 @@ const links = [
         </div>
        
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{ 
+      <div className="navbar-center hidden md:flex">
+        <ul className="menu menu-horizontal px-1 flex  gap-4">{ 
             links.map((link, i)=><NavbarLinks key={i} href={link.href}>{link.label}</NavbarLinks>)
             }</ul>
       </div>
