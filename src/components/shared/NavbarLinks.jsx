@@ -6,7 +6,7 @@ import React from "react";
 const NavbarLinks = ({ href, children }) => {
   const pathName = usePathname();
   const isActive = href === pathName;
-  console.log(pathName);
+  // console.log(pathName);
 
   return (
     <li>

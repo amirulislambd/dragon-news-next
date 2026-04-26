@@ -1,10 +1,18 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import user from '@/assets/user.png'
+import React, { use } from "react";
+import avatar from '@/assets/user.png'
 import NavbarLinks from "./NavbarLinks";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+
+  const {data:session}=authClient.useSession()
+  const user = session?.user
+  console.log(user)
+
+
 const links = [
   {href:'/', label:'Home'},
   {href:"/about", label:'About'},
@@ -51,8 +59,14 @@ const links = [
             }</ul>
       </div>
       <div className="navbar-end flex items-center gap-2">
-        <Image width={40} height={40} src={user} alt="user png"/>
-        <button className="btn btn-neutral">Button</button>
+       
+       <Image className="w-12 h-12 rounded-full" width={50} height={50} src={user?.image||avatar} alt="user png"/>
+     
+      { user?  
+      
+      <button onClick={async()=>await authClient.signOut()} className="btn btn-neutral">Log Uot</button>:
+      <Link href={'/login'}><button className="btn btn-neutral">Login</button></Link>
+    }
       </div>
     </div>
   );

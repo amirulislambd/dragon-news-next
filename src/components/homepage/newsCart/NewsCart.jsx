@@ -1,32 +1,13 @@
-import { getNewsDetailsById } from '@/lib/dataFecth';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import { FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
-import { FaBookBookmark } from 'react-icons/fa6';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { FaEye, FaShare, FaShareAlt, FaStar } from "react-icons/fa";
+import { FaBookBookmark } from "react-icons/fa6";
 
-
-export const generateMetadata= async({params}) => {
-  const {id}=await params
-  const news = await getNewsDetailsById(id)
-return {
-  title: news.title,
-  description: news.description,
-  icons:{
-    icon: news.image_url,
-    shortcut: news.image_url, 
-    apple: news.image_url, 
-  }
-}
-
-};
-
-const NewsDetailsPage = async({params}) => {
-    const {id} = await params
-    const news = await getNewsDetailsById(id)
-    console.log(news)
-    return (
-        <div className="card bg-base-100  shadow-sm space-y-3 p-4 max-w-5xl mx-auto my-5">
+const NewsCart = ({ news }) => {
+  // console.log(news._id);
+  return (
+    <div className="card bg-base-100  shadow-sm space-y-3 p-4">
       <div className="space-y-3">
         <h2 className="card-title">{news.title}</h2>
         <div className="flex items-center justify-between p-4 bg-gray-100">
@@ -61,8 +42,8 @@ const NewsDetailsPage = async({params}) => {
         />
       </figure>
       <p className="line-clamp-3">{news.details}</p>
-      <Link href={`/category/${news.category_id}`}>
-      <button className="text-red-500 transition-all duration-300 hover:scale-105 cursor-pointer btn hover:btn-neutral">Go Back</button>
+      <Link href={`/news/${news._id}`}>
+      <button className="text-red-500 transition-all duration-300 hover:scale-105 cursor-pointer">Mor details...</button>
       </Link>
       <div className="divider"></div>
       <div className="flex justify-between">
@@ -80,7 +61,7 @@ const NewsDetailsPage = async({params}) => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
-export default NewsDetailsPage;
+export default NewsCart;
