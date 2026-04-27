@@ -61,9 +61,13 @@ const NewsDetailsPage = async({params}) => {
         />
       </figure>
       <p className="line-clamp-3">{news.details}</p>
-      <Link href={`/category/${news.category_id}`}>
-      <button className="text-red-500 transition-all duration-300 hover:scale-105 cursor-pointer btn hover:btn-neutral">Go Back</button>
+     <div>
+     <button className='btn btn-outline hover:btn-neutral'>
+     <Link href={`/category/${news.category_id}`}>
+     Go Back news
       </Link>
+     </button>
+     </div>
       <div className="divider"></div>
       <div className="flex justify-between">
         <div className="flex items-center gap-2">

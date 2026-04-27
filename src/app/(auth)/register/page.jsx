@@ -28,7 +28,7 @@ const RegisterPage = () => {
     formData.append("image", imagField);
     try {
       const imgbbResponse = await fetch(
-        `https://api.imgbb.com/1/upload?key=5715531fe06c6529e087b5ae3f42b053`,
+        `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API_KEY}`,
         {
           method: "POST",
           body: formData,
@@ -92,11 +92,11 @@ const RegisterPage = () => {
           </fieldset>
 
           {photo && photo[0] && (
-            <div className=" border-2 inline-flex rounded-full border-red-200 shadow-2xl">
+            <div className="w-20 h-20 border-2 inline-flex rounded-full border-red-200 shadow-2xl">
               <Image
                 className="rounded-full"
-                width={50}
-                height={40}
+                width={100}
+                height={50}
                 src={URL.createObjectURL(photo[0])}
                 alt="user photo"
               />
