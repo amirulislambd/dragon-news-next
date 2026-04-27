@@ -23,5 +23,9 @@ export const auth = betterAuth({
     },
 
   database: mongodbAdapter(db, { client }),
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://dragon-news-next-6oeu2644k-amirulislambds-projects.vercel.app" 
+],
 });
 
