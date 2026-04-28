@@ -15,5 +15,5 @@ return NextResponse.redirect(new URL('/login', request.url))
 
  
 export const config = {
-  matcher: [ '/career','/news/:path*'],
+  matcher: [ '/career','/news/:path*','/profile'],
 }

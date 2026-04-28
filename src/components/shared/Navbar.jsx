@@ -16,7 +16,8 @@ const Navbar = () => {
 const links = [
   {href:'/', label:'Home'},
   {href:"/about", label:'About'},
-  {href:'/career', label:'Career'}
+  {href:'/career', label:'Career'},
+  {href:'/profile', label:'Profile'}
    ]
  
 
